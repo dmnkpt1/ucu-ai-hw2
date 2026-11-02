@@ -1,8 +1,8 @@
 ---
-title: Homework 1 -- Your Title Here
-author: John Doe
+title: Homework 2 - Multiple Object Video Detection
+author: Dominika Petrus, Andrii Kryvyi
 course: Artificial Intelligence · UCU
-date: 2026-10-12
+date: 2026-11-02
 ---
 
 ## Introduction
