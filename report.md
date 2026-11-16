@@ -54,6 +54,10 @@ And the metrics that we calculate are: AP50, AP_small, AP for classes, speed (ms
 First 6 notebooks are done by legacy protocol. In that protocol we didn't paint ignored regions, ground-truth boxes didn't delete, Ultralytics models chose the best epoch using built in score for all val. frames.
 After that we made new current protocol, it includes all what was described above plus fixation of seeds. In Results the legacy notebooks have distinct marks, because we can't fairly compare them with new protocol notebooks. 
 
+### Tuning strategy
+
+Starting from the initial model, we change one parameter at a time relative to the parent run, evaluated each change on the validation set, combined successful modifications, and aggregated the best models into an ensemble.
+
 ## Results and analysis
 
 
