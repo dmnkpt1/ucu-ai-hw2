@@ -51,10 +51,8 @@ So we have two validation approaches: quick-validation(every 5th frame, total - 
 
 And the metrics that we calculate are: AP50, AP_small, AP for classes, speed (ms for frame). 
 
-First 5 notebooks are done by legacy protocol. In that protocol we didn't paint ignored regions, ground-truth boxes didn't delete, Ultralytics models chose the best epoch using built in score for all val. frames. 
+First 6 notebooks are done by legacy protocol. In that protocol we didn't paint ignored regions, ground-truth boxes didn't delete, Ultralytics models chose the best epoch using built in score for all val. frames.
 After that we made new current protocol, it includes all what was described above plus fixation of seeds. In Results the legacy notebooks have distinct marks, because we can't fairly compare them with new protocol notebooks. 
-
-### Models
 
 ## Results and analysis
 
@@ -252,6 +250,20 @@ The following table summarizes all runs and their metrics:
 | [yolo11s-p2-combined-trainval](./notebooks/yolo11s-p2-combined-trainval.ipynb) | — | — | — | 45.5 | 0.24967 | 0.76 |
 
 \* The evaluation was done using "legacy" protocol.
+
+### Conclusions
+
+The variation of mAP is very large, which can be seen in the difference between Public LB and internal validation, which is especially seen for `yolo11s-p2-combiner` with ~0.05 of difference.
+
+This means that the models are very noisy, in the best case we should have introduced bootstraping and evaluate how model metrics change with different data on the input. This could also be explained by *Failure analysis* case.
+
+Ensembles give the best internal validation and Public LB metrics, which could also explain the above - ensembles reduce variance in the predictions.
+
+### Failure analysis
+
+![](./images/fig_failure_2.png)
+
+The above image is an example of when does the `pipeline-class-balance` fails (false positive car). I.e. model finds the car, when there is no label of a car. One can definetely see that the car is there, but dataset has no label for it. And this is only a signle case, thus dataset is not very precise.
 
 ## Final model and run instructions
 
