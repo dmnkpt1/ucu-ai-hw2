@@ -37,11 +37,6 @@ The other problem is ignored regions (regions that are not labeled) because they
 Consecutive frames are very similar, if we compare them we can see that the same object on the current frame and the next one has a median IoU 0.9. So we decided to take only every 5th frame from train data (because after 5 frames the median IoU falls to 0.59), and the number of frames dropped from 24201 to 4868, it also make runtime smaller.
 ([EDA, sections 9 and 11][eda])
 
-As from the beginning the annotations were given in COCO  Конвертація анотацій (need to see in notebooks)
-([EDA, sections 1.1–2][eda])
-
-
-
 Frame density on train data has median 43.0 and val. 37.0, but max numbers are 180 and 116. As standard COCO use only 100 boxes, and in our case about 5% of data have over 100 objects, so we put the limit of 500 boxes for 1 frame.
 ([EDA, section 5][eda])
 
