@@ -56,6 +56,11 @@ After that we made new current protocol, it includes all what was described abov
 
 ### Models
 
+### Tuning strategy
+
+Starting from the initial model, we change one parameter at a time relative to the parent run, evaluated each change on the validation set, combined successful modifications, and aggregated the best models into an ensemble.
+
+
 ## Results and analysis
 
 
